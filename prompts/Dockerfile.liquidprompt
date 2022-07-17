@@ -1,0 +1,9 @@
+FROM arching AS archliquidprompt
+MAINTAINER me
+
+RUN git clone --branch stable https://github.com/nojhan/liquidprompt.git /root/liquidprompt
+RUN echo "[[ \$- = *i* ]] && source /root/liquidprompt/liquidprompt" >> /root/.bashrc 
+RUN echo "[[ \$- = *i* ]] && source /root/liquidprompt/liquidprompt" >> /root/.zshrc 
+RUN echo "liquidprompt" > /root/prompt.txt
+
+

@@ -1,0 +1,7 @@
+FROM arching AS archstarship
+MAINTAINER me
+
+RUN pacman -S --noconfirm starship
+RUN echo 'eval "$(starship init bash)"' >> /root/.bashrc
+RUN echo 'eval "$(starship init zsh)"' >> /root/.zshrc
+RUN echo "starship" > /root/prompt.txt

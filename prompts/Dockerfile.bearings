@@ -1,0 +1,14 @@
+FROM arching AS archbearings
+MAINTAINER me
+
+RUN mkdir -p /root/bin/ 
+# For some reason github.com gives me a 403 unauthorized when I try download the latest, so instead I've included the binary here and use COPY
+# RUN http -d -o "/root/bin/bearings" "https://github.com/liamg/bearings/releases/download/v0.0.5/bearings-linux-amd64"
+COPY bearings-linux-amd64 /usr/bin/bearings
+RUN chmod 774 /usr/bin/bearings
+RUN git clone "https://github.com/liamg/bearings.git" /root/bearings
+ 
+RUN bearings install -s bash ; bearings install -s zsh
+RUN echo "bearings" > /root/prompt.txt
+
+

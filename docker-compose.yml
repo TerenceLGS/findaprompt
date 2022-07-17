@@ -1,0 +1,42 @@
+version: "3.1"
+services:
+  archa:
+    image: arching
+    container_name: archa
+    volumes:
+      - /dkr/mounts/archa/home:/home
+    ports:
+      - 1021:1022
+    restart: unless-stopped
+    build: ./arching
+
+  archbearings:
+    image: archbearings
+    container_name: archbearings
+    ports:
+      - 1022:1022
+    restart: unless-stopped
+    build:
+      context: ./prompts
+      dockerfile: Dockerfile.bearings
+        
+  archstarship:
+    image: archstarship
+    container_name: archstarship
+    ports:
+      - 1023:1022
+    restart: unless-stopped
+    build:
+      context: ./prompts
+      dockerfile: Dockerfile.starship
+
+
+  archliquidprompt:
+    image: archliquidprompt
+    container_name: archliquidprompt
+    ports:
+      - 1024:1022
+    restart: unless-stopped
+    build:
+      context: ./prompts
+      dockerfile: Dockerfile.liquidprompt
