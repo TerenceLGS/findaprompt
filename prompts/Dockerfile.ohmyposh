@@ -1,6 +1,8 @@
 FROM arching AS archohmyposh
 MAINTAINER me
 
+RUN echo "git clone https://github.com/neo4j/neo4j.git" > /root/largegit.sh
+
 # For some reason github.com gives me a 403 unauthorized when I try download the latest, so instead I've included the binary here and use COPY
 
 RUN wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh && chmod 755 /usr/local/bin/oh-my-posh
@@ -14,6 +16,5 @@ rm /root/.poshthemes/themes.zip
  
 RUN echo 'eval "$(oh-my-posh init bash)"' >> /root/.bashrc
 RUN echo 'eval "$(oh-my-posh init zsh)"' >> /root/.zshrc
-RUN echo "ohmyposh" > /root/prompt.txt
-
+RUN echo "oh-my-posh" > /root/prompt.txt
 

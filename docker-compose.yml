@@ -43,7 +43,7 @@ services:
 
   archohmyposh:
     image: archohmyposh
-    container_name: archlohmyposh
+    container_name: archohmyposh
     ports:
       - 1025:1022
     restart: unless-stopped
