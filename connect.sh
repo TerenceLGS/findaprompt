@@ -1,4 +1,4 @@
-pick=("archstarship" "archliquidprompt" "archbearings")
+pick=("archstarship" "archliquidprompt" "archbearings" "archohmyposh")
 
 select opt in "${pick[@]}"; do
     sudo docker exec -it $opt zsh

@@ -40,3 +40,13 @@ services:
     build:
       context: ./prompts
       dockerfile: Dockerfile.liquidprompt
+
+  archohmyposh:
+    image: archohmyposh
+    container_name: archlohmyposh
+    ports:
+      - 1025:1022
+    restart: unless-stopped
+    build:
+      context: ./prompts
+      dockerfile: Dockerfile.ohmyposh
